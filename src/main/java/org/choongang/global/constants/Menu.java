@@ -1,6 +1,6 @@
 package org.choongang.global.constants;
 
-public enum Menu {
+public enum  Menu {
     MAIN,
     JOIN,
     LOGIN,
