@@ -1,43 +1,41 @@
 package org.choongang.Game.controller;
 
-import org.choongang.global.Controller;
-import org.choongang.global.ControllerLocator;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.GMController;
+import org.choongang.global.GMControllerLocator;
+import org.choongang.global.constants.GameMenu;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class GameControllerLocator implements ControllerLocator {
-    private static ControllerLocator instance;
-    private Map<Menu, Controller> controllers;
+public class GameControllerLocator implements GMControllerLocator {
+    private static GMControllerLocator instance;
+    private Map<GameMenu, GMController> controllers;
 
     private GameControllerLocator(){
         controllers = new HashMap<>();
     }
-    public static ControllerLocator getInstance(){
+    public static GMControllerLocator getInstance(){
         if (instance == null){
-            instance =  new GameControllerLocator();
+            instance = new GameControllerLocator();
         }
         return instance;
     }
 
     @Override
-    public Controller find(Menu menu) {
-        Controller controller = controllers.get(menu);
+    public GMController find(GameMenu gameMenu) {
+        GMController controller = controllers.get(gameMenu);
         if (controller != null) {
             return controller;
         }
-        switch (menu) {
+        switch (gameMenu) {
             case GAMEPVC:
                 controller = new GameControllerPvC();
                 break;
             case GAMEPVP:
-                controller = new GameControllerPvP();
+                controller =  new GameControllerPvP();
                 break;
-            default:
-                controller = new ResultController();
         }
-        controllers.put(menu, controller);
+        controllers.put(gameMenu, controller);
         return controller;
     }
 }

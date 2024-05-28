@@ -6,10 +6,6 @@ import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.global.constants.Menu;
 import org.choongang.main.MainRouter;
-
-import org.choongang.global.constants.Menu;
-
-
 import org.choongang.member.service.MemberServiceLocator;
 import org.choongang.template.Templates;
 
@@ -49,8 +45,6 @@ public class JoinController extends AbstractController {
 //        System.out.println(form);
         Router router = MainRouter.getInstance();
 
-
-        /*
         //회원가입 처리..
         try{
             Service service = MemberServiceLocator.getInstance().find(Menu.JOIN);
@@ -69,6 +63,6 @@ public class JoinController extends AbstractController {
             router.change(Menu.JOIN);
 
         }
-*/
+
     }
 }
