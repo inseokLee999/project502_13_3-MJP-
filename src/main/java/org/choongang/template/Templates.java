@@ -1,5 +1,6 @@
 package org.choongang.template;
 
+public class Templates {
 
 import org.choongang.constants.Menu;
 import org.choongang.template.game.GameTpl;
