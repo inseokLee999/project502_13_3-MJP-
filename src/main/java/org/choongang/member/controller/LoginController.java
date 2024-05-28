@@ -7,8 +7,9 @@ import org.choongang.global.constants.Menu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.service.MemberServiceLocator;
 import org.choongang.template.Templates;
-
+import org.choongang.template.main.MainTpl;
 public class LoginController extends AbstractController {
+
     @Override
     public void show() {
         Templates.getInstance().render(Menu.LOGIN);
@@ -28,9 +29,15 @@ public class LoginController extends AbstractController {
                 .userId(userId)
                 .userPw(userPw)
                 .build();
-//        System.out.println(form);
+
+        System.out.println(form);
+        MainTpl mainTpl = new MainTpl();
+        mainTpl.Logout =2;
+
         //로그인 처리..
+
         Router router = MainRouter.getInstance();
+
         try{
 
             Service service = MemberServiceLocator.getInstance().find(Menu.LOGIN);
