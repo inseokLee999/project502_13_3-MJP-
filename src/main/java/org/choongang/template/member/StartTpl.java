@@ -1,4 +1,4 @@
 package org.choongang.template.member;
 
-public class MypageTpl {
+public class StartTpl {
 }
