@@ -1,4 +1,4 @@
-package org.choongang.member.service;
+package org.choongang.member.services;
 
 import org.choongang.Game.Services.GameService;
 import org.choongang.Game.Services.ResultService;
@@ -16,6 +16,20 @@ public class MemberServiceLocator extends AbstractServiceLocator {
 
         return instance;
     }
+
+
+/** km추가 S */
+    // 회원가입 유효성 검사 Validator
+    public JoinValidator joinValidator() {
+        return new JoinValidator(memberMapper());
+    }
+
+    // MemberMapper 인터페이스 구현체
+    public MemberMapper memberMapper() {
+        return DBConn.getSession().getMapper(MemberMapper.class);
+    }
+/** km추가 E */
+
 
     @Override
     public Service find(Menu menu) {
