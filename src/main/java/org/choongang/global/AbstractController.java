@@ -4,6 +4,7 @@ import org.choongang.global.constants.Menu;
 import org.choongang.main.MainRouter;
 
 import java.util.Scanner;
+import java.util.function.Predicate;
 
 public abstract class AbstractController implements Controller{
     protected Scanner sc;
@@ -43,5 +44,20 @@ public abstract class AbstractController implements Controller{
             case 4: menu = Menu.RESULT; break;
         }
         MainRouter.getInstance().change(menu);
+    }
+
+    /**
+     *
+     * @param message : 항목 메세지
+     * @param predicate : 판별식
+     * @return
+     */
+    protected String promptWithValidation(String message, Predicate<String> predicate){
+        String str = null;
+        do{
+            System.out.println(message);
+            str = sc.nextLine();
+        }while (!predicate.test(str));
+        return str;
     }
 }

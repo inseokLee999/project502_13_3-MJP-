@@ -1,6 +1,6 @@
 package org.choongang.template;
 
-import org.choongang.constants.Menu;
+import org.choongang.global.constants.Menu;
 import org.choongang.template.game.GameTpl;
 import org.choongang.template.game.ResultTpl;
 import org.choongang.template.main.MainTpl;
@@ -43,4 +43,6 @@ public class Templates {
     }
     public String line(){return "----------------------------------------\n";}
     public String doubleline(){return "========================================\n";}
+
+
 }
