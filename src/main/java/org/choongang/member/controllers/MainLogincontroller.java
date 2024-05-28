@@ -1,4 +1,4 @@
-package org.choongang.member.controller;
+package org.choongang.member.controllers;
 
 import org.choongang.global.AbstractController;
 import org.choongang.global.constants.Menu;

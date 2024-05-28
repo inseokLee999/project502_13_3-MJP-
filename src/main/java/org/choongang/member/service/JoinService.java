@@ -1,7 +1,7 @@
 package org.choongang.member.service;
 
 import org.choongang.global.Service;
-import org.choongang.member.controller.RequestJoin;
+import org.choongang.member.controllers.RequestJoin;
 
 public class JoinService implements Service<RequestJoin> {
 

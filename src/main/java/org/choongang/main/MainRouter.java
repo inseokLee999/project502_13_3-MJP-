@@ -1,12 +1,11 @@
 package org.choongang.main;
 
-import org.choongang.Game.controller.GameControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
 import org.choongang.global.constants.Menu;
 import org.choongang.main.controllers.MainController;
-import org.choongang.member.controller.MemberControllerLocator;
+import org.choongang.member.controllers.MemberControllerLocator;
 
 public class MainRouter implements Router {
     private static Router instance;

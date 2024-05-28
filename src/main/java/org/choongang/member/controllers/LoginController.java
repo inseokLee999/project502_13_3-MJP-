@@ -1,4 +1,4 @@
-package org.choongang.member.controller;
+package org.choongang.member.controllers;
 
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
@@ -7,7 +7,6 @@ import org.choongang.global.constants.Menu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.service.MemberServiceLocator;
 import org.choongang.template.Templates;
-import org.choongang.template.main.MainTpl;
 
 public class LoginController extends AbstractController {
     @Override
