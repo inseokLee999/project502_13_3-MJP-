@@ -1,4 +1,4 @@
-package org.choongang.member.service;
+package org.choongang.member.services;
 
 import org.choongang.global.Service;
 import org.choongang.member.controllers.RequestLogin;
