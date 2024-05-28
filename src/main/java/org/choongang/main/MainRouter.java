@@ -25,6 +25,10 @@ public class MainRouter implements Router {
         switch (menu){
             case JOIN: controller = memlocator.find(Menu.JOIN) ; break;
             case LOGIN: controller =memlocator.find(Menu.LOGIN); break;
+            case MAINLOGINPAGE: controller = memlocator.find(Menu.MAINLOGINPAGE); break;
+
+            case GAME: controller = memlocator.find(Menu.GAME); break;
+            case RESULT: controller = memlocator.find(Menu.RESULT); break;
             case GAME: controller = memlocator.find(Menu.GAME); break;
             case RESULT: controller = memlocator.find(Menu.RESULT); break;
             default: controller = new MainController();
