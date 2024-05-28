@@ -46,6 +46,7 @@ public abstract class AbstractController implements Controller{
         MainRouter.getInstance().change(menu);
     }
 
+
     /**
      *
      * @param message : 항목 메세지

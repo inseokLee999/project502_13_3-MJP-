@@ -21,7 +21,6 @@ public  class Templates {
         return instance;
     }
     public void render(Menu menu) {
-
         System.out.println(find(menu).getTpl());
     }
     public Template find(Menu menu){
