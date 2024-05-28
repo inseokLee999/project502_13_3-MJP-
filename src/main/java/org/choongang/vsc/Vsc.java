@@ -2,7 +2,7 @@ package org.choongang.vsc;
 
 import java.util.Scanner;
 
-public class vsc {
+public class Vsc {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
