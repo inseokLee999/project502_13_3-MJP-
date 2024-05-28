@@ -82,16 +82,16 @@ public class Vsc {
 
                 // 묵찌빠 대결 및 승부 결정
                 if (input.equals(computerChoice)) {
-                    System.out.println(winner + " 승!");
-                    break;
+                    System.out.println(winner + " 승! 최종 승자가 결정되어 게임 종료합니다.");
+                    return; // 최종 승자가 결정되면 게임 종료
                 } else {
                     if ((input.equals("묵") && computerChoice.equals("찌")) ||
                             (input.equals("찌") && computerChoice.equals("빠")) ||
                             (input.equals("빠") && computerChoice.equals("묵"))) {
-                        System.out.println("사용자가 이겼습니다! 사용자가 공격자가 됩니다.");
+                        System.out.println("사용자가 최종 이겼습니다! 사용자가 공격자가 됩니다.");
                         winner = "사용자";
                     } else {
-                        System.out.println("컴퓨터가 이겼습니다! 컴퓨터가 공격자가 됩니다.");
+                        System.out.println("컴퓨터가 최종 이겼습니다! 컴퓨터가 공격자가 됩니다.");
                         winner = "컴퓨터";
                     }
                 }
