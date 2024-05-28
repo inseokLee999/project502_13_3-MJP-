@@ -6,9 +6,20 @@ import org.choongang.global.ServiceLocator;
 import org.choongang.global.constants.Menu;
 
 public class GameServiceLocator extends AbstractServiceLocator {
-
+    public static ServiceLocator getInstance(){
+        if(instance == null){
+            instance = new GameServiceLocator();
+        }
+        return instance;
+    }
     @Override
     public Service find(Menu menu) {
-        return null;
+        Service service = services.get(menu);
+        if(service != null){
+            return service;
+        }switch (menu){
+            default : service = new GameService();break;
+        }
+        return service;
     }
 }
