@@ -1,17 +1,22 @@
-package org.choongang.vsc;
+package org.choongang.Game.controller;
 
-import java.util.Scanner;
+import org.choongang.global.AbstractController;
+import org.choongang.global.constants.Menu;
+import org.choongang.template.Templates;
 
-public class Vsc {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+public class GameControllerPvC extends AbstractController {
+    @Override
+    public void show() {
+        Templates.getInstance().render(Menu.GAME);
+    }
 
+    @Override
+    public void prompt() {
         // 게임 루프
-        // 묵찌빠 전 선공 정하기 용 가위바위보 S //
         while (true) {
             // 사용자 입력 받기
             System.out.print("Enter '바위', '가위', or '보', or '종료' to quit: ");
-            String input = scanner.nextLine();
+            String input = sc.nextLine();
 
             // 종료 확인
             if (input.equalsIgnoreCase("종료")) {
@@ -53,15 +58,12 @@ public class Vsc {
                     winner = "컴퓨터";
                 }
             }
-            // 묵찌빠 전 선공 정하기 용 가위바위보 E //
 
             // 묵찌빠 게임 시작
             while (true) {
                 // 사용자 입력 받기
                 System.out.print("Enter '묵', '찌', '빠': ");
-
-
-                input = scanner.nextLine();
+                input = sc.nextLine();
 
                 // 유효성 검사
                 if (!(input.equals("묵") || input.equals("찌") || input.equals("빠"))) {
@@ -82,22 +84,20 @@ public class Vsc {
 
                 // 묵찌빠 대결 및 승부 결정
                 if (input.equals(computerChoice)) {
-                    System.out.println(winner + " 승! 최종 승자가 결정되어 게임 종료합니다.");
-                    return; // 최종 승자가 결정되면 게임 종료
+                    System.out.println(winner + " 승!");
+                    break;
                 } else {
                     if ((input.equals("묵") && computerChoice.equals("찌")) ||
                             (input.equals("찌") && computerChoice.equals("빠")) ||
                             (input.equals("빠") && computerChoice.equals("묵"))) {
-                        System.out.println("사용자가 최종 이겼습니다! 사용자가 공격자가 됩니다.");
+                        System.out.println("사용자가 이겼습니다! 사용자가 공격자가 됩니다.");
                         winner = "사용자";
                     } else {
-                        System.out.println("컴퓨터가 최종 이겼습니다! 컴퓨터가 공격자가 됩니다.");
+                        System.out.println("컴퓨터가 이겼습니다! 컴퓨터가 공격자가 됩니다.");
                         winner = "컴퓨터";
                     }
                 }
             }
         }
-
-        scanner.close(); // 게임 종료 시 스캐너 닫기
     }
 }

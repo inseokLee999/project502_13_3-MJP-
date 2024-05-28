@@ -29,9 +29,11 @@ public class LoginController extends AbstractController {
                 .userId(userId)
                 .userPw(userPw)
                 .build();
+
         System.out.println(form);
         MainTpl mainTpl = new MainTpl();
         mainTpl.Logout =2;
+
         //로그인 처리..
 
         Router router = MainRouter.getInstance();
