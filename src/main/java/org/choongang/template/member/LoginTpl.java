@@ -1,4 +1,6 @@
 package org.choongang.template.member;
 
-public class LoginTpl {
+import org.choongang.template.Template;
+
+public class LoginTpl implements Template {
 }
