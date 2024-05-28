@@ -7,6 +7,7 @@ public class Vsc {
         Scanner scanner = new Scanner(System.in);
 
         // 게임 루프
+        // 묵찌빠 전 선공 정하기 용 가위바위보 S //
         while (true) {
             // 사용자 입력 받기
             System.out.print("Enter '바위', '가위', or '보', or '종료' to quit: ");
@@ -52,6 +53,7 @@ public class Vsc {
                     winner = "컴퓨터";
                 }
             }
+            // 묵찌빠 전 선공 정하기 용 가위바위보 E //
 
             // 묵찌빠 게임 시작
             while (true) {
