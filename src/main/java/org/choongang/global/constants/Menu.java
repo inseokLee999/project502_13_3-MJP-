@@ -6,4 +6,6 @@ public enum Menu {
     LOGIN,
     GAME,
     RESULT,
+    GAMEPVP,
+    GAMEPVC
 }
