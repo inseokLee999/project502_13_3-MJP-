@@ -1,4 +1,4 @@
-package org.choongang.global.member.controller;
+package org.choongang.member.controller;
 
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;

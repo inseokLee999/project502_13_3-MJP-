@@ -1,4 +1,10 @@
 package org.choongang.main.controllers;
 
-public class MainController {
+import org.choongang.global.AbstractController;
+
+public class MainController extends AbstractController {
+    @Override
+    public void show() {
+        System.out.println("메인메뉴");
+    }
 }

@@ -1,9 +1,9 @@
-package org.choongang.global.member.controller;
+package org.choongang.member.controller;
 
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
-import org.choongang.global.Game.controller.GameController;
-import org.choongang.global.Game.controller.ResultController;
+import org.choongang.Game.controller.GameController;
+import org.choongang.Game.controller.ResultController;
 import org.choongang.global.constants.Menu;
 
 import java.util.HashMap;

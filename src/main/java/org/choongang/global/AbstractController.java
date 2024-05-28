@@ -1,7 +1,7 @@
 package org.choongang.global;
 
 import org.choongang.global.constants.Menu;
-import org.choongang.global.main.MainRouter;
+import org.choongang.main.MainRouter;
 
 import java.util.Scanner;
 
