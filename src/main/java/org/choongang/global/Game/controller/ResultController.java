@@ -1,4 +1,4 @@
-package org.choongang.global.GameResult;
+package org.choongang.global.Game.controller;
 
 import org.choongang.global.AbstractController;
 

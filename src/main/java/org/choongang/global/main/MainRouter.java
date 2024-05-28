@@ -1,10 +1,12 @@
 package org.choongang.global.main;
 
 import org.choongang.global.Controller;
+import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
 import org.choongang.global.constants.Menu;
-import org.choongang.global.member.JoinController;
-import org.choongang.global.member.LoginController;
+import org.choongang.global.member.controller.JoinController;
+import org.choongang.global.member.controller.LoginController;
+import org.choongang.global.member.controller.MemberControllerLocator;
 
 public class MainRouter implements Router {
     private static Router instance;
@@ -18,12 +20,14 @@ public class MainRouter implements Router {
     }
     @Override
     public void change(Menu menu) {
+        ControllerLocator memlocator = MemberControllerLocator.getInstance();
+        ControllerLocator gamelocator = MemberControllerLocator.getInstance();
         Controller controller = null;
 
         switch (menu){
-            case JOIN: controller = new JoinController(); break;
-            case LOGIN: controller = new LoginController(); break;
-            case GAME: controller = new LoginController(); break;
+            case JOIN: controller = memlocator.find(Menu.JOIN) ; break;
+            case LOGIN: controller =memlocator.find(Menu.LOGIN); break;
+            case GAME: controller = memlocator.find(Menu.JOIN) break;
             case RESULT: controller = new LoginController(); break;
             default: controller = new MainController();
         }
