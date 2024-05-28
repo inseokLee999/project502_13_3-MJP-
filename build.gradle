@@ -19,6 +19,7 @@ dependencies {
     implementation 'com.oracle.database.nls:orai18n:23.4.0.24.05'
     implementation 'org.mybatis:mybatis:3.5.16'
     implementation 'ch.qos.logback:logback-classic:1.5.6'
+    implementation 'org.mindrot:jbcrypt:0.4'
 
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
