@@ -1,7 +1,9 @@
 package org.choongang;
 
+import org.choongang.global.main.MainRouter;
+
 public class Application {
     public static void main(String[] args) {
-        System.out.println("프로그램 시작!!@@");
+        MainRouter.getInstance().start();
     }
 }
