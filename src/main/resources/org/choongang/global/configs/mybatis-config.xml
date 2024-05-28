@@ -24,3 +24,6 @@
         <mapper resource="org/choongang/member/mapper/MemberMapper.xml"/>
     </mappers>
 </configuration>
+
+
+
