@@ -1,4 +1,4 @@
-package org.choongang.global.member;
+package org.choongang.global.member.controller;
 
 import org.choongang.global.AbstractController;
 
