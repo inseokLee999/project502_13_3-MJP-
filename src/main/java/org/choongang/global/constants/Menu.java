@@ -5,7 +5,5 @@ public enum Menu {
     JOIN,
     LOGIN,
     GAME,
-    RESULT,
-    GAMEPVP,
-    GAMEPVC
+    RESULT
 }

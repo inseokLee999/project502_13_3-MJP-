@@ -12,7 +12,7 @@ public class MainRouter implements Router {
     private static Router instance;
 
     private MainRouter(){}
-    public  static  Router getInstance(){
+    public static Router getInstance(){
         if(instance == null){
             instance = new MainRouter();
         }
@@ -21,18 +21,18 @@ public class MainRouter implements Router {
     @Override
     public void change(Menu menu) {
         ControllerLocator memlocator = MemberControllerLocator.getInstance();
-        ControllerLocator gamelocator = GameControllerLocator.getInstance();
         Controller controller = null;
-
         switch (menu){
             case JOIN: controller = memlocator.find(Menu.JOIN) ; break;
             case LOGIN: controller =memlocator.find(Menu.LOGIN); break;
-            case GAME: controller = gamelocator.find(Menu.GAME); break;
-            case RESULT: controller = gamelocator.find(Menu.RESULT); break;
+            case GAME: controller = memlocator.find(Menu.GAME); break;
+            case RESULT: controller = memlocator.find(Menu.RESULT); break;
             default: controller = new MainController();
         }
         controller.run();
     }
+
+
 
     @Override
     public void start() {

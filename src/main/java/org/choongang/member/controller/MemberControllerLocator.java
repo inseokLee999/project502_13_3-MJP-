@@ -1,8 +1,11 @@
 package org.choongang.member.controller;
 
+import org.choongang.Game.controller.GameController;
+import org.choongang.Game.controller.ResultController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.constants.Menu;
+import org.choongang.main.controllers.MainController;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +19,7 @@ public class MemberControllerLocator implements ControllerLocator {
     }
     public static ControllerLocator getInstance(){
         if (instance == null){
-            instance = (ControllerLocator) new MemberControllerLocator();
+            instance = new MemberControllerLocator();
         }
         return instance;
     }
@@ -31,8 +34,17 @@ public class MemberControllerLocator implements ControllerLocator {
             case JOIN:
                 controller = new JoinController();
                 break;
-            default:
+            case GAME:
+                controller = (Controller) new GameController();
+                break;
+            case LOGIN:
                 controller = new LoginController();
+                break;
+            case RESULT:
+                controller = new ResultController();
+                break;
+            default:
+                controller = new MainController();
         }
         controllers.put(menu, controller);
         return controller;
