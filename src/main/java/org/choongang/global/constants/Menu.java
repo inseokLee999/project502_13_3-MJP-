@@ -4,6 +4,7 @@ public enum Menu {
     MAIN,
     JOIN,
     LOGIN,
+    MAINLOGINPAGE,
     GAME,
-    RESULT
+    RESULT,
 }
