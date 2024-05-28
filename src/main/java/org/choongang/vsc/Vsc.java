@@ -59,6 +59,8 @@ public class Vsc {
             while (true) {
                 // 사용자 입력 받기
                 System.out.print("Enter '묵', '찌', '빠': ");
+
+
                 input = scanner.nextLine();
 
                 // 유효성 검사
