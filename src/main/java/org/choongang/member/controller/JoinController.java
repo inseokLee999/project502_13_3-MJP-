@@ -25,9 +25,9 @@ public class JoinController extends AbstractController {
          * 사용자 이름 :
          * userId, userPw toString
          */
-        String userId = promptWithValidation("아이디 : ",s->s.length()>=8);
+        String userId = promptWithValidation("아이디 : ",s->s.length()>=6);
         String userPw = promptWithValidation("비밀번호 :",
-                s->s.isBlank());
+                s->!s.isBlank());
         String confirmPw = promptWithValidation("비밀번호 확인 : ",s->{
             boolean match = s.equals(userPw);
             if(!match) System.err.println("\n비밀번호가 일치하지 않습니다");
