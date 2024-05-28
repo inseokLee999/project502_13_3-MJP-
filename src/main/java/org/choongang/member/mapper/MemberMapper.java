@@ -15,3 +15,4 @@ public interface MemberMapper {
     int modify(Member member);
     int delete(String userId);
 }
+
