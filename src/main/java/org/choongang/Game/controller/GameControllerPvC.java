@@ -1,16 +1,22 @@
-package org.choongang.vsc;
+package org.choongang.Game.controller;
 
-import java.util.Scanner;
+import org.choongang.global.AbstractController;
+import org.choongang.global.constants.Menu;
+import org.choongang.template.Templates;
 
-public class vsc {
-    public static void main() {
-        Scanner scanner = new Scanner(System.in);
+public class GameControllerPvC extends AbstractController {
+    @Override
+    public void show() {
+        Templates.getInstance().render(Menu.GAME);
+    }
 
+    @Override
+    public void prompt() {
         // 게임 루프
         while (true) {
             // 사용자 입력 받기
             System.out.print("Enter '바위', '가위', or '보', or '종료' to quit: ");
-            String input = scanner.nextLine();
+            String input = sc.nextLine();
 
             // 종료 확인
             if (input.equalsIgnoreCase("종료")) {
@@ -57,7 +63,7 @@ public class vsc {
             while (true) {
                 // 사용자 입력 받기
                 System.out.print("Enter '묵', '찌', '빠': ");
-                input = scanner.nextLine();
+                input = sc.nextLine();
 
                 // 유효성 검사
                 if (!(input.equals("묵") || input.equals("찌") || input.equals("빠"))) {
@@ -93,8 +99,5 @@ public class vsc {
                 }
             }
         }
-
-        scanner.close(); // 게임 종료 시 스캐너 닫기
-
     }
 }
