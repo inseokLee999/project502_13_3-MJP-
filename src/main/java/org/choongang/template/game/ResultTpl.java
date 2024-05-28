@@ -1,4 +1,10 @@
 package org.choongang.template.game;
 
-public class ResultTpl {
+import org.choongang.template.Template;
+
+public class ResultTpl implements Template {
+    @Override
+    public String getTpl() {
+        return "";
+    }
 }
