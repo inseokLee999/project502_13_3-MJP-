@@ -5,7 +5,10 @@ import org.choongang.Game.Services.ResultService;
 import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
+import org.choongang.global.configs.DBConn;
 import org.choongang.global.constants.Menu;
+import org.choongang.global.validators.JoinValidator;
+import org.choongang.member.mapper.MemberMapper;
 
 public class MemberServiceLocator extends AbstractServiceLocator {
 
@@ -37,7 +40,7 @@ public class MemberServiceLocator extends AbstractServiceLocator {
         if (service != null) {
             return service;
         }switch (menu) {
-            case JOIN: service = new JoinService();break;
+            case JOIN: service = new JoinService(memberMapper(), joinValidator());break;
             case LOGIN: service = new LoginService(); break;
             case GAME: service = new GameService(); break;
             case RESULT: service = new ResultService();break;

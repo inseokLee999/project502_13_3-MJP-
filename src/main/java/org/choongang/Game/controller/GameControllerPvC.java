@@ -13,6 +13,7 @@ public class GameControllerPvC extends AbstractGMController {
 
     @Override
     public void prompt() {
+
         // 게임 루프
         while (true) {
             // 사용자 입력 받기
