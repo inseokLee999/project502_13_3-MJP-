@@ -39,4 +39,12 @@ public  class Templates {
         tpls.put(menu,tpl);
         return tpl;
     }
+
+    public String line(){return "----------------------------------------\n";}
+    public String doubleline(){return "========================================\n";}
+
+
 }
+
+}
+
