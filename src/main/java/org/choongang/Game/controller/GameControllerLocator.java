@@ -2,8 +2,6 @@ package org.choongang.Game.controller;
 
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
-import org.choongang.Game.controller.GameController;
-import org.choongang.Game.controller.ResultController;
 import org.choongang.global.constants.Menu;
 
 import java.util.HashMap;
@@ -30,8 +28,11 @@ public class GameControllerLocator implements ControllerLocator {
             return controller;
         }
         switch (menu) {
-            case GAME:
-                controller = new GameController();
+            case GAMEPVC:
+                controller = new GameControllerPvC();
+                break;
+            case GAMEPVP:
+                controller = new GameControllerPvP();
                 break;
             default:
                 controller = new ResultController();
