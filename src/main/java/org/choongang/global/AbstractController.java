@@ -55,7 +55,7 @@ public abstract class AbstractController implements Controller{
     protected String promptWithValidation(String message, Predicate<String> predicate){
         String str = null;
         do{
-            System.out.println(message);
+            System.out.print(message);
             str = sc.nextLine();
         }while (!predicate.test(str));
         return str;

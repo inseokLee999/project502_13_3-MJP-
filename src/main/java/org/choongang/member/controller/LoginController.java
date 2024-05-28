@@ -19,9 +19,9 @@ public class LoginController extends AbstractController {
          * 비밀번호 :
          * userId, userPw toString
          */
-        String userId = promptWithValidation("아이디 : ",s->s.length()>=8);
-        String userPw = promptWithValidation("비밀번호 :",
-                s->s.isBlank());
+        String userId = promptWithValidation("아이디 : ",s->s.length()>=6);
+        String userPw = promptWithValidation("비밀번호 : ",
+                s->!s.isBlank());
         RequestLogin form = RequestLogin.builder()
                 .userId(userId)
                 .userPw(userPw)

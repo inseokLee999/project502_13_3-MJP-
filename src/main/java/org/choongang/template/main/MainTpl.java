@@ -5,6 +5,13 @@ import org.choongang.template.Template;
 public class MainTpl implements Template {
     @Override
     public String getTpl() {
-        return "";
+
+        StringBuffer sb = new StringBuffer(2000);
+        sb.append("메뉴를 선택하세요\n")
+                .append("1.회원가입\n")
+                .append("2.로그인\n")
+                .append("3.게임시작\n")
+                .append("4.결과보기\n");
+        return sb.toString();
     }
 }
