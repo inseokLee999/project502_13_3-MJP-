@@ -13,6 +13,7 @@ public class LoginController extends AbstractController {
     Router router = MainRouter.getInstance();
 
 
+
     @Override
     public void show() {
         Templates.getInstance().render(MainMenu.LOGIN);
