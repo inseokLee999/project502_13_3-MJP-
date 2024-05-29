@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class saveGameResult {
+public class SaveGameResult {
 
     public void saveGameResult(String userNo, String result, String ptocPtop) {
         String url = "jdbc:oracle:thin:@localhost:1521:XE"; // 데이터베이스 URL

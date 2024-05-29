@@ -1,11 +1,14 @@
 package org.choongang.Game.play.controllers;
 
 import org.choongang.global.AbstractController;
+import org.choongang.member.controllers.MainLogincontroller;
 
 import java.util.Scanner;
 
 public class GameControllerPvC extends AbstractController {
     private String userNo; // 사용자 번호 저장
+    private String result;
+    private String ptocPtop;
 
     @Override
     public void show() {
@@ -15,8 +18,14 @@ public class GameControllerPvC extends AbstractController {
     @Override
     public void prompt() {
         // 사용자 로그인 처리
-        userNo = getUserNumber(); // 사용자 번호 얻어오기
 
+        // 사용자 로그인 처리
+        String userNo = MainLogincontroller.getUserNumber(); // 사용자 번호 얻어오기
+        String result = MainLogincontroller.getUserNumber();
+        String ptocPtop = MainLogincontroller.getUserNumber();
+
+        SaveGameResult saver = new SaveGameResult(); // SaveGameResult 객체 생성
+        saver.saveGameResult(userNo, result, ptocPtop); // 사용자 번호와 게임 결과 전달
 
         // 게임 루프
         while (true) {
@@ -104,7 +113,7 @@ public class GameControllerPvC extends AbstractController {
 
 
                         // 게임 종료 후 게임 결과 저장
-                        saveGameResult(userNo, gameResult, ptocPtop); // 사용자 번호와 게임 결과 전달
+                        saver.saveGameResult(userNo, result, ptocPtop); // 사용자 번호와 게임 결과 전달
 
                     }
                 }
@@ -112,8 +121,6 @@ public class GameControllerPvC extends AbstractController {
 
 
 
-            SaveGameResult saver = new SaveGameResult(); // SaveGameResult 객체 생성
-            saver.saveGameResult(userNo, gameResult, ptocPtop); // 사용자 번호와 게임 결과 전달
         }
     }
 }
