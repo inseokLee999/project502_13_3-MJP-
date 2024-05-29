@@ -1,4 +1,4 @@
-package org.choongang.member.controller;
+package org.choongang.member.controllers;
 
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
@@ -32,8 +32,6 @@ public class LoginController extends AbstractController {
         System.out.println(form);
 
 
-
-        //로그인 처리..
         Router router = MainRouter.getInstance();
 
         try{

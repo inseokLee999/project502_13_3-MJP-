@@ -1,4 +1,4 @@
-package org.choongang.member.controller;
+package org.choongang.member.controllers;
 
 import org.choongang.Game.controllers.GameController;
 import org.choongang.Game.controllers.ResultController;
