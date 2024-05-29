@@ -10,6 +10,11 @@ public class MainLogincontroller extends AbstractController {
     }
 
     public void prompt(){
-       // String number =
+        public String getUserNumber() {
+            // 사용자 번호를 얻어오는 로직
+            return userNo;
+        }
+        MainLogincontroller controller = new MainLogincontroller();
+        String userNo = controller.getUserNumber(); // 사용자 번호 얻어오기
     }
 }

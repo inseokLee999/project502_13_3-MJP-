@@ -1,6 +1,8 @@
-package org.choongang.game.play.controllers;
+package org.choongang.Game.play.controllers;
 
 import org.choongang.global.AbstractController;
+import org.choongang.global.constants.MainMenu;
+import org.choongang.template.Templates;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
