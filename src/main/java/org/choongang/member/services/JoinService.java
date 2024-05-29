@@ -19,6 +19,7 @@ public class JoinService implements Service<RequestJoin> {
 
     @Override
     public void process(RequestJoin form) {
+        System.out.println("회원가입 process 실행");
         // 회원 가입 유효성 검사
         validator.check(form);
 
@@ -32,6 +33,7 @@ public class JoinService implements Service<RequestJoin> {
                 .userPw(userPw)
                 .userNm(form.getUserNm())
                 .build();
+        System.out.println("Member:"+member.toString());
         int affectedRows = mapper.register(member);
 
         if (affectedRows < 1) { // 회원 가입 처리 실패시

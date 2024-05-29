@@ -2,6 +2,7 @@ package org.choongang.global;
 
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
+import org.choongang.member.MemberSession;
 
 import java.util.Scanner;
 import java.util.function.Predicate;
@@ -37,12 +38,32 @@ public abstract class AbstractController implements Controller{
     }
     private void change(int menuNo) {
         MainMenu mainMenu = null;
-        switch (menuNo){
-            case 1: mainMenu = MainMenu.JOIN; break;
-            case 2: mainMenu = MainMenu.LOGIN; break;
-            case 3: mainMenu = MainMenu.GAME; break;
-            case 4: mainMenu = MainMenu.RESULT; break;
+        if(MemberSession.isLogin()){//로그인 상태인 경우
+            switch (menuNo){
+                case 1:
+                    mainMenu = MainMenu.GAME; break;
+                case 2:
+                    MemberSession.logout();//로그아웃
+                    mainMenu = MainMenu.MAIN;//로그아웃 이후에 다시 메인메뉴로 이동
+                    break;
+            }
+        }else {//미로그인 상태
+            switch (menuNo) {
+                case 1:
+                    mainMenu = MainMenu.JOIN;
+                    break;//회원가입
+                case 2:
+                    mainMenu = MainMenu.LOGIN;
+                    break;//로그인
+                case 3:
+                    mainMenu = MainMenu.GAME;
+                    break;//게임
+                case 4:
+                    mainMenu = MainMenu.RESULT;
+                    break;
+            }
         }
+        // 메뉴 컨트롤러 변경 처리 - Router
         MainRouter.getInstance().change(mainMenu);
     }
 

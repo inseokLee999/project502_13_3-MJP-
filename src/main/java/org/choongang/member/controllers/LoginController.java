@@ -23,7 +23,7 @@ public class LoginController extends AbstractController {
          * 비밀번호 :
          * userId, userPw toString
          */
-        String userId = promptWithValidation("아이디 : ",s->s.length()>=6);
+        String userId = promptWithValidation("아이디 : ",s->!s.isBlank());
         String userPw = promptWithValidation("비밀번호 : ",
                 s->!s.isBlank());
         RequestLogin form = RequestLogin.builder()
@@ -40,6 +40,7 @@ public class LoginController extends AbstractController {
 
             Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
             service.process(form);
+            System.out.println("로그인 성공!");
             router.change(MainMenu.MAIN);
 
         }catch (RuntimeException e){
