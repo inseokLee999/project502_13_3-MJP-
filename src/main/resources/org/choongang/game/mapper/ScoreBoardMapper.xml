@@ -5,8 +5,21 @@
 <mapper namespace="org.choongang.game.mapper.ScoreBoardMapper">
 
     <insert id="register">
-        INSERT INTO SCORE_BOARD (SCORENO, USER_NO, PTOC_PTOP, WIN, LST)
-            VALUES (SEQ_SCORE_BOARD.NEXTVAL, #{userNo}, #{ptcPtp}, #{win}, #{lst})
+
+
+
+        <![CDATA[
+        DECLARE
+            COUNT NUMBER;
+        BEGIN
+
+            SELECT COUNT(*) INTO COUNT FROM SCORE_BOARD WHERE USER_NO=#{userNo}
+
+            INSERT INTO SCORE_BOARD (SCORENO, USER_NO, PTOC_PTOP, WIN, LST)
+                VALUES (SEQ_SCORE_BOARD.NEXTVAL, #{userNo}, #{ptcPtp}, #{win}, #{lst})
+
+        END
+        ]]>
     </insert>
 
     <select id="getRank" resultType="org.choongang.game.entities.ScoreRank">

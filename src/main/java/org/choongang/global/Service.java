@@ -5,4 +5,5 @@ public interface Service<T> {
     default T process() {
         return null;
     }
+    default void process(T... params) {}
 }

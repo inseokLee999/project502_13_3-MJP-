@@ -1,7 +1,9 @@
 package org.choongang.game.controllers;
 
 import org.choongang.game.constants.SubMenu;
-//import org.choongang.game.play.controllers.GameControllerPvC;
+
+import org.choongang.game.play.controllers.GameControllerPvC;
+
 import org.choongang.game.play.controllers.GameControllerPvP;
 import org.choongang.global.*;
 

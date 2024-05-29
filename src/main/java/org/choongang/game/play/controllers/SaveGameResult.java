@@ -1,4 +1,4 @@
-package org.choongang.Game.play.controllers;
+package org.choongang.game.play.controllers;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

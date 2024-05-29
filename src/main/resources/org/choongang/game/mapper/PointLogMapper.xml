@@ -8,7 +8,7 @@
             VALUES (SEQ_POINT_LOG.NEXTVAL, #{userNo}, #{point}, #{message})
     </insert>
 
-    <select id="getRank">
+    <select id="getRank" >
         <![CDATA[
         SELECT ROWNUM RANK, d.* FROM (
             SELECT
