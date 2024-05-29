@@ -7,9 +7,10 @@ import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
+import org.choongang.template.member.UserSession;
 
 public class LoginController extends AbstractController {
-
+    Router router = MainRouter.getInstance();
 
 
     @Override
@@ -23,8 +24,14 @@ public class LoginController extends AbstractController {
          * 아이디 :
          * 비밀번호 :
          * userId, userPw toString
+         * promptWithValidation("아이디 : ",s->!s.isBlank());
          */
-        String userId = promptWithValidation("아이디 : ",s->!s.isBlank());
+        String userId = promptWithValidation( "아이디 : ", s -> { if (s.equals("main")) {
+            router.change(MainMenu.MAIN);
+            return false; // break the validation loop
+        }
+            return !s.isBlank();
+        });
         String userPw = promptWithValidation("비밀번호 : ",
                 s->!s.isBlank());
         RequestLogin form = RequestLogin.builder()
@@ -35,14 +42,15 @@ public class LoginController extends AbstractController {
         System.out.println(form);
 
 
-        Router router = MainRouter.getInstance();
+
 
         try{
 
             Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
             service.process(form);
             System.out.println("로그인 성공!");
-            router.change(MainMenu.MAIN);
+            UserSession.getInstance().setUserId(userId);
+            router.change(MainMenu.GAME);
 
         }catch (RuntimeException e){
             System.err.println(e.getMessage());
