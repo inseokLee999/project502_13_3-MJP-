@@ -1,8 +1,8 @@
 package org.choongang.Game.controller;
 
-import org.choongang.global.AbstractGMController;
+import org.choongang.global.AbstractController;
 
-public class GameControllerPvP extends AbstractGMController {
+public class GameControllerPvP extends AbstractController {
     @Override
     public void show() {
 

@@ -1,10 +1,23 @@
 package org.choongang.template.game;
 
 import org.choongang.template.Template;
+import org.choongang.template.Templates;
+
+import java.util.function.Supplier;
 
 public class ResultTpl implements Template {
+    private Supplier<String> hook;
+    public void addHook(Supplier<String> hook){
+        this.hook = hook;
+    }
     @Override
     public String getTpl() {
-        return "";
+        StringBuffer sb = new StringBuffer(2000);
+        sb.append("순위보기\n")
+                .append(Templates.getInstance().line());
+        if(hook != null){
+            sb.append(hook.get());
+        }
+        return sb.toString();
     }
 }

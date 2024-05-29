@@ -3,18 +3,17 @@ package org.choongang.member.controllers;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Router;
 import org.choongang.global.Service;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
-import org.choongang.template.main.MainTpl;
 
 public class LoginController extends AbstractController {
 
 
     @Override
     public void show() {
-        Templates.getInstance().render(Menu.LOGIN);
+        Templates.getInstance().render(MainMenu.LOGIN);
     }
 
     @Override
@@ -34,16 +33,14 @@ public class LoginController extends AbstractController {
 
         System.out.println(form);
 
-        MainTpl mainTpl = new MainTpl();
-        mainTpl.Logout =2;
 
         Router router = MainRouter.getInstance();
 
         try{
 
-            Service service = MemberServiceLocator.getInstance().find(Menu.LOGIN);
+            Service service = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
             service.process(form);
-            router.change(Menu.MAIN);
+            router.change(MainMenu.MAIN);
 
         }catch (RuntimeException e){
             System.err.println(e.getMessage());

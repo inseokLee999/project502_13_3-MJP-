@@ -1,6 +1,6 @@
 package org.choongang.global;
 
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 
 import java.util.Scanner;
@@ -36,14 +36,14 @@ public abstract class AbstractController implements Controller{
         prompt();
     }
     private void change(int menuNo) {
-        Menu menu = null;
+        MainMenu mainMenu = null;
         switch (menuNo){
-            case 1: menu = Menu.JOIN; break;
-            case 2: menu = Menu.LOGIN; break;
-            case 3: menu = Menu.GAME; break;
-            case 4: menu = Menu.RESULT; break;
+            case 1: mainMenu = MainMenu.JOIN; break;
+            case 2: mainMenu = MainMenu.LOGIN; break;
+            case 3: mainMenu = MainMenu.GAME; break;
+            case 4: mainMenu = MainMenu.RESULT; break;
         }
-        MainRouter.getInstance().change(menu);
+        MainRouter.getInstance().change(mainMenu);
     }
 
 
