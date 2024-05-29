@@ -19,18 +19,15 @@ public class MainRouter implements Router {
         return instance;
     }
     @Override
-
     public void change(MainMenu mainMenu) {
-
         ControllerLocator memlocator = MemberControllerLocator.getInstance();
         ControllerLocator gamelocator = GameControllerLocator.getInstance();
         Controller controller = null;
-
         switch (mainMenu){
-
             case JOIN: controller = memlocator.find(MainMenu.JOIN) ; break;
             case LOGIN: controller =memlocator.find(MainMenu.LOGIN); break;
             case MAINLOGINPAGE: controller = memlocator.find(MainMenu.MAINLOGINPAGE); break;
+
             case GAME: controller = gamelocator.find(MainMenu.GAME); break;
             
             default: controller = new MainController();

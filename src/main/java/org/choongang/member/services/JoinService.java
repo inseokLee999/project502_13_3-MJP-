@@ -2,11 +2,13 @@ package org.choongang.member.services;
 
 import lombok.RequiredArgsConstructor;
 import org.choongang.global.Service;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.global.exceptions.ValidationException;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mapper.MemberMapper;
 import org.choongang.member.validators.JoinValidator;
+import org.choongang.template.member.UserSession;
 import org.mindrot.jbcrypt.BCrypt;
 
 //org/choongang/member/services/JoinService.java
@@ -39,6 +41,5 @@ public class JoinService implements Service<RequestJoin> {
         if (affectedRows < 1) { // 회원 가입 처리 실패시
             throw new ValidationException("회원가입 실패하였습니다.");
         }
-
     }
 }
