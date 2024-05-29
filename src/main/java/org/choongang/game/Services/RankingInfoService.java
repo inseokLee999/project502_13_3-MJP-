@@ -13,7 +13,6 @@ public class RankingInfoService implements Service<List<Rank>> {
     }
     @Override
     public List<Rank> process() {
-        System.out.println("List <Rank> process()");
         return mapper.getRank();
     }
 }

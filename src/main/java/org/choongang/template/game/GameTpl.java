@@ -15,7 +15,7 @@ public class GameTpl implements Template {
                 .append("1. vsPlayer\n")
                 .append("2. vsComputer\n")
                 .append("3. 랭킹보기\n")
-                .append("4 메인화면으로 돌아가기");
+                .append("4. 메인화면으로 돌아가기");
 
         return sb.toString();
     }

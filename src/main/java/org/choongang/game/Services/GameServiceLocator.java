@@ -34,7 +34,6 @@ public class GameServiceLocator extends AbstractServiceLocator {
                 case PVP://함께하기
 
                 case RANKING:
-                    System.out.println("GameServiceLocator");
                     service = new RankingInfoService(pointLogMapper()); break;
                 default : service = new GameService();break;
             }
