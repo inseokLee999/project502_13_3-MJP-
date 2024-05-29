@@ -1,21 +1,19 @@
 package org.choongang.game.mapper;
 
+
 import org.apache.ibatis.session.SqlSession;
-import org.choongang.Game.entities.PointLog;
-import org.choongang.Game.entities.Rank;
-import org.choongang.Game.mapper.PointLogMapper;
+import org.choongang.game.entities.PointLog;
+import org.choongang.game.entities.Rank;
 import org.choongang.global.Service;
 import org.choongang.global.configs.DBConn;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.member.controllers.RequestJoin;
 import org.choongang.member.entities.Member;
 import org.choongang.member.mapper.MemberMapper;
-import org.choongang.member.services.JoinService;
 import org.choongang.member.services.MemberServiceLocator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 

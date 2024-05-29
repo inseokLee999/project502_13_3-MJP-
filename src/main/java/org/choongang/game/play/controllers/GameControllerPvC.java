@@ -1,8 +1,6 @@
-package org.choongang.Game.play.controllers;
+package org.choongang.game.play.controllers;
 
 import org.choongang.global.AbstractController;
-import org.choongang.global.constants.MainMenu;
-import org.choongang.template.Templates;
 
 public class GameControllerPvC extends AbstractController {
     @Override

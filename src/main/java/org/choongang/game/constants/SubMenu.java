@@ -1,4 +1,4 @@
-package org.choongang.Game.constants;
+package org.choongang.game.constants;
 
 import org.choongang.global.Menu;
 

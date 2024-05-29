@@ -1,4 +1,4 @@
-package org.choongang.Game.Services;
+package org.choongang.game.Services;
 
 import org.choongang.global.Service;
 import org.choongang.member.controllers.RequestGame;
