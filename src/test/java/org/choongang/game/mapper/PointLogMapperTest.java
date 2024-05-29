@@ -2,6 +2,7 @@ package org.choongang.game.mapper;
 
 import org.apache.ibatis.session.SqlSession;
 import org.choongang.Game.entities.PointLog;
+import org.choongang.Game.entities.Rank;
 import org.choongang.Game.mapper.PointLogMapper;
 import org.choongang.global.Service;
 import org.choongang.global.configs.DBConn;
@@ -58,5 +59,10 @@ public class PointLogMapperTest {
                 mapper.register(item);
             }//endfor
         }//end for
+    }
+    @Test
+    void mapperTest2(){
+        List<Rank> ranks = mapper.getRank();
+        ranks.forEach(System.out::println);
     }
 }
