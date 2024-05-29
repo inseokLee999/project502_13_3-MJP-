@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.choongang.game.mapper.ScoreBoardMapper">
+
+    <insert id="register">
+        INSERT INTO SCORE_BOARD (SCORENO, USER_NO, PTOC_PTOP, WIN, LST)
+            VALUES (SEQ_SCORE_BOARD.NEXTVAL, #{userNo}, #{ptcPtp}, #{win}, #{lst})
+    </insert>
+
+    <select id="getRank" resultType="org.choongang.game.entities.ScoreRank">
+        SELECT ROWNUM RANK, d.* FROM
+        (SELECT a.USER_NO userNo, b.USER_ID userId, b.USER_NM userNm, round((a.WIN / (a.WIN + a.LST))*100,2)RATE FROM SCORE_BOARD a
+        JOIN MEMBER b ON a.USER_NO = b.USER_NO
+        WHERE a.WIN + a.LST >= 5
+        ORDER BY (a.WIN / (a.WIN + a.LST)) DESC) d
+    </select>
+</mapper>
