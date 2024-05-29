@@ -20,6 +20,8 @@ public class DBConn {
         }
     }
 
+
+
     public static SqlSession getSession(boolean autoCommit) {
         return factory.openSession(autoCommit);
     }

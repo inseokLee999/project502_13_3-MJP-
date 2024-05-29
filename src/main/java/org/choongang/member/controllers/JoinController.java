@@ -6,7 +6,7 @@ import org.choongang.global.Router;
 import org.choongang.global.Service;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
-import org.choongang.member.service.MemberServiceLocator;
+import org.choongang.member.services.MemberServiceLocator;
 import org.choongang.template.Templates;
 
 public class JoinController extends AbstractController {

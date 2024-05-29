@@ -1,12 +1,11 @@
 package org.choongang.main;
 
-import org.choongang.Game.controllers.GameControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
-import org.choongang.global.constants.MainMenu;
+import org.choongang.global.constants.Menu;
 import org.choongang.main.controllers.MainController;
-import org.choongang.member.controller.MemberControllerLocator;
+import org.choongang.member.controllers.MemberControllerLocator;
 
 public class MainRouter implements Router {
     private static Router instance;
@@ -19,15 +18,17 @@ public class MainRouter implements Router {
         return instance;
     }
     @Override
-    public void change(MainMenu mainMenu) {
+    public void change(Menu menu) {
         ControllerLocator memlocator = MemberControllerLocator.getInstance();
-        ControllerLocator gamelocator = GameControllerLocator.getInstance();
         Controller controller = null;
-        switch (mainMenu){
-            case JOIN: controller = memlocator.find(MainMenu.JOIN) ; break;
-            case LOGIN: controller =memlocator.find(MainMenu.LOGIN); break;
-            case MAINLOGINPAGE: controller = memlocator.find(MainMenu.MAINLOGINPAGE); break;
-            case GAME: controller = gamelocator.find(MainMenu.GAME); break;
+        switch (menu){
+            case JOIN: controller = memlocator.find(Menu.JOIN) ; break;
+            case LOGIN: controller =memlocator.find(Menu.LOGIN); break;
+            case MAINLOGINPAGE: controller = memlocator.find(Menu.MAINLOGINPAGE); break;
+
+            case GAME: controller = memlocator.find(Menu.GAME); break;
+            case RESULT: controller = memlocator.find(Menu.RESULT); break;
+            
             default: controller = new MainController();
         }
         controller.run();
@@ -38,7 +39,7 @@ public class MainRouter implements Router {
     @Override
     public void start() {
         while (true){
-            change(MainMenu.MAIN);
+            change(Menu.MAIN);
         }
     }
 }
