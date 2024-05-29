@@ -1,7 +1,7 @@
 package org.choongang.member.services;
 
-import org.choongang.Game.Services.GameService;
-import org.choongang.Game.Services.ResultService;
+import org.choongang.game.Services.GameService;
+import org.choongang.game.Services.ResultService;
 import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Menu;
 import org.choongang.global.Service;

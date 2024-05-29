@@ -18,6 +18,7 @@ public class JoinController extends AbstractController {
 
     @Override
     public void prompt() {
+        Router router = MainRouter.getInstance();
         while(true) {
             /**
              * 아이디 :
@@ -27,7 +28,13 @@ public class JoinController extends AbstractController {
              * userId, userPw toString
              */
 
-            String userId = promptWithValidation("아이디 : ", s -> s.length() >= 6);
+
+            String userId = promptWithValidation( "아이디 : ", s -> { if (s.equals("main")) {
+                router.change(MainMenu.MAIN);
+                return false; // break the validation loop
+            }
+                return s.length() >= 6;
+            });
             String userPw = promptWithValidation("비밀번호 : ",
                     s -> !s.isBlank());
             String confirmPw = promptWithValidation("비밀번호 확인 : ", s -> {
@@ -43,12 +50,13 @@ public class JoinController extends AbstractController {
                     .userNm(userNm)
                     .build();
             System.out.println(form);
-            Router router = MainRouter.getInstance();
             System.out.println(router);
             //회원가입 처리..
             try {
+
                 Service service = MemberServiceLocator.getInstance().find(MainMenu.JOIN);
                 service.process(form);
+
                 //회원가입 성공시 -> 로그인화면 이동
                 System.out.println("회원가입 성공");
                 router.change(MainMenu.LOGIN);

@@ -5,7 +5,7 @@ import org.choongang.template.Templates;
 
 import java.util.function.Supplier;
 
-public class ResultTpl implements Template {
+public class RankTpl implements Template {
     private Supplier<String> hook;
     public void addHook(Supplier<String> hook){
         this.hook = hook;

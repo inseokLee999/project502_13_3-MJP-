@@ -1,11 +1,9 @@
-package org.choongang.Game.controllers;
+package org.choongang.game.controllers;
 
-import org.choongang.Game.constants.SubMenu;
-import org.choongang.Game.play.controllers.GameControllerPvC;
-import org.choongang.Game.play.controllers.GameControllerPvP;
-import org.choongang.Game.play.controllers.PlayController;
+import org.choongang.game.constants.SubMenu;
+import org.choongang.game.play.controllers.GameControllerPvC;
+import org.choongang.game.play.controllers.GameControllerPvP;
 import org.choongang.global.*;
-import org.choongang.global.constants.MainMenu;
 
 public class GameControllerLocator extends AbstractControllerLocator {
 
@@ -37,6 +35,7 @@ public class GameControllerLocator extends AbstractControllerLocator {
                     break;
                 case RANKING:
                     controller = new RankingController();
+                    break;
 
             }
         }else{//게임 메인 메뉴

@@ -1,6 +1,6 @@
-package org.choongang.Game.controllers;
+package org.choongang.game.controllers;
 
-import org.choongang.Game.constants.SubMenu;
+import org.choongang.game.constants.SubMenu;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
@@ -22,10 +22,12 @@ public class GameController extends AbstractController {
             try {
                 int m = Integer.parseInt(menu);
                 if (m >= 1 && m <= 4) {
+                    System.out.println(m);
                     change(m);
                     break;
                 }
             } catch (Exception e) {
+                e.printStackTrace();
                 System.err.println("메뉴 1,2,3,4 중에서 선택하세요.");
             }
         }

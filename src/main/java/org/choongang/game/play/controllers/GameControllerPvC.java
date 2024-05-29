@@ -1,15 +1,15 @@
 package org.choongang.Game.play.controllers;
 
 import org.choongang.global.AbstractController;
-import org.choongang.member.controllers.MainLogincontroller;
+import org.choongang.global.constants.MainMenu;
+import org.choongang.template.Templates;
 
-import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class GameControllerPvC extends AbstractController {
-    private String userNo; // 사용자 번호 저장
-    private String result;
-    private String ptocPtop;
-
     @Override
     public void show() {
         System.out.println("===== User vs Computer =====\n");
@@ -17,15 +17,6 @@ public class GameControllerPvC extends AbstractController {
 
     @Override
     public void prompt() {
-        // 사용자 로그인 처리
-
-        // 사용자 로그인 처리
-        String userNo = MainLogincontroller.getUserNumber(); // 사용자 번호 얻어오기
-        String result = MainLogincontroller.getUserNumber();
-        String ptocPtop = MainLogincontroller.getUserNumber();
-
-        SaveGameResult saver = new SaveGameResult(); // SaveGameResult 객체 생성
-        saver.saveGameResult(userNo, result, ptocPtop); // 사용자 번호와 게임 결과 전달
 
         // 게임 루프
         while (true) {
@@ -110,17 +101,26 @@ public class GameControllerPvC extends AbstractController {
                     } else {
                         System.out.println("컴퓨터가 이겼습니다! 컴퓨터가 공격자가 됩니다.");
                         winner = "컴퓨터";
-
-
-                        // 게임 종료 후 게임 결과 저장
-                        saver.saveGameResult(userNo, result, ptocPtop); // 사용자 번호와 게임 결과 전달
-
                     }
                 }
             }
+        }
+    }
+    private void saveGameResult(String userNo, String result, String ptocPtop) {
+        String url = "jdbc:oracle:thin:@localhost:1521:XE";
+        String user = "PROJECT2_1";
+        String password = "oracle";
 
-
-
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            String query = "INSERT INTO SCORE_BOARD (userNo, result, ptocPtop ) VALUES (USER_NO, WIN, PTOC_PTOP)";
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, userNo);
+                stmt.setString(2, result);
+                stmt.setString(3, ptocPtop);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
