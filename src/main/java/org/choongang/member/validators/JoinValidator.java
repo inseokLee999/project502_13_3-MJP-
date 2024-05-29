@@ -44,7 +44,7 @@ public class JoinValidator implements Validator<RequestJoin>, RequiredValidator 
         }
 
         // 비밀번호, 비밀번호 확인 일치 여부 체크
-        if (userPw != null && confirmPw != null && !userPw.equals(confirmPw)) {
+        if (confirmPw != null && !userPw.equals(confirmPw)) {
             throw new ValidationException("비밀번호가 일치하지 않습니다.");
         }
     }
