@@ -5,7 +5,7 @@ import org.choongang.Game.Services.ResultService;
 import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 
 public class MemberServiceLocator extends AbstractServiceLocator {
 
@@ -18,11 +18,11 @@ public class MemberServiceLocator extends AbstractServiceLocator {
     }
 
     @Override
-    public Service find(Menu menu) {
-        Service service = services.get(menu);
+    public Service find(MainMenu mainMenu) {
+        Service service = services.get(mainMenu);
         if (service != null) {
             return service;
-        }switch (menu) {
+        }switch (mainMenu) {
             case JOIN: service = new JoinService();break;
             case LOGIN: service = new LoginService(); break;
             case GAME: service = new GameService(); break;

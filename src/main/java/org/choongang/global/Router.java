@@ -1,9 +1,9 @@
 package org.choongang.global;
 
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 
 public interface Router {
-    void change(Menu menu);
+    void change(MainMenu mainMenu);
 
     void start();
 }

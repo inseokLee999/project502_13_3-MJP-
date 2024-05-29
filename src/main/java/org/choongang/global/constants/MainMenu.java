@@ -1,10 +1,12 @@
 package org.choongang.global.constants;
 
-public enum Menu {
+import org.choongang.global.Menu;
+
+public enum MainMenu implements Menu {
     MAIN,
     JOIN,
     LOGIN,
     MAINLOGINPAGE,
-    GAME,
+    GAME,//게임 하기
     RESULT,
 }
