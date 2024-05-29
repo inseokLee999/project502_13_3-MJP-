@@ -11,6 +11,7 @@ import org.choongang.template.Templates;
 public class LoginController extends AbstractController {
 
 
+
     @Override
     public void show() {
         Templates.getInstance().render(MainMenu.LOGIN);
