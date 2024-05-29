@@ -5,6 +5,9 @@
 <mapper namespace="org.choongang.game.mapper.ScoreBoardMapper">
 
     <insert id="register">
+
+
+
         <![CDATA[
         DECLARE
             COUNT NUMBER;
@@ -18,8 +21,6 @@
         END
         ]]>
     </insert>
-
-
 
     <select id="getRank" resultType="org.choongang.game.entities.ScoreRank">
         SELECT ROWNUM RANK, d.* FROM
