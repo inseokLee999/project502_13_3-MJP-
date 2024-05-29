@@ -2,6 +2,7 @@ package org.choongang.Game.controllers;
 
 import org.choongang.Game.constants.SubMenu;
 import org.choongang.Game.play.controllers.GameControllerPvC;
+import org.choongang.Game.play.controllers.GameControllerPvP;
 import org.choongang.Game.play.controllers.PlayController;
 import org.choongang.global.*;
 import org.choongang.global.constants.MainMenu;
@@ -32,7 +33,7 @@ public class GameControllerLocator extends AbstractControllerLocator {
                     controller = new GameControllerPvC();
                     break;
                 case PVP:
-                    controller = new PlayController();
+                    controller = new GameControllerPvP();
                     break;
                 case RANKING:
                     controller = new RankingController();

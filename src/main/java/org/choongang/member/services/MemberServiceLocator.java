@@ -9,6 +9,7 @@ import org.choongang.global.configs.DBConn;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.member.validators.JoinValidator;
 import org.choongang.member.mapper.MemberMapper;
+import org.choongang.member.validators.LoginValidator;
 
 public class MemberServiceLocator extends AbstractServiceLocator {
 
@@ -32,7 +33,9 @@ public class MemberServiceLocator extends AbstractServiceLocator {
         return DBConn.getSession().getMapper(MemberMapper.class);
     }
 /** km추가 E */
-
+    public LoginValidator loginValidator(){
+        return new LoginValidator((memberMapper()));
+    }
 
     @Override
     public Service find(MainMenu mainMenu) {
@@ -41,7 +44,7 @@ public class MemberServiceLocator extends AbstractServiceLocator {
             return service;
         }switch (mainMenu) {
             case JOIN: service = new JoinService(memberMapper(), joinValidator());break;
-            case LOGIN: service = new LoginService(); break;
+            case LOGIN: service = new LoginService(memberMapper(), loginValidator()); break;
             case GAME: service = new GameService(); break;
             case RESULT: service = new ResultService();break;
         }
