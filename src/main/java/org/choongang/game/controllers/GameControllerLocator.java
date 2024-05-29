@@ -2,6 +2,7 @@ package org.choongang.game.controllers;
 
 import org.choongang.game.constants.SubMenu;
 //import org.choongang.game.play.controllers.GameControllerPvC;
+import org.choongang.game.play.controllers.GameControllerPvC;
 import org.choongang.game.play.controllers.GameControllerPvP;
 import org.choongang.global.*;
 
@@ -28,7 +29,7 @@ public class GameControllerLocator extends AbstractControllerLocator {
             SubMenu subMenu = (SubMenu) menu;
             switch(subMenu){
                 case PVC:
-                    //controller = new GameControllerPvC();
+                    controller = new GameControllerPvC();
                     break;
                 case PVP:
                     controller = new GameControllerPvP();
