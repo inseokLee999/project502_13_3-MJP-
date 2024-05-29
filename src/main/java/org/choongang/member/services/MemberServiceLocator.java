@@ -7,8 +7,7 @@ import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
 import org.choongang.global.configs.DBConn;
 import org.choongang.global.constants.MainMenu;
-import org.choongang.global.constants.MainMenu;
-import org.choongang.global.validators.JoinValidator;
+import org.choongang.member.validators.JoinValidator;
 import org.choongang.member.mapper.MemberMapper;
 
 public class MemberServiceLocator extends AbstractServiceLocator {
