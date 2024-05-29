@@ -28,8 +28,7 @@ public class MainRouter implements Router {
 
             case GAME: controller = memlocator.find(Menu.GAME); break;
             case RESULT: controller = memlocator.find(Menu.RESULT); break;
-            case GAME: controller = memlocator.find(Menu.GAME); break;
-            case RESULT: controller = memlocator.find(Menu.RESULT); break;
+            
             default: controller = new MainController();
         }
         controller.run();
