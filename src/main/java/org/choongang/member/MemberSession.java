@@ -33,4 +33,8 @@ public class MemberSession {
         member = null;
     }
 
+    public static Member getMember() {
+        return member;
+    }
+
 }
