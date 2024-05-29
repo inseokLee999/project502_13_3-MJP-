@@ -2,7 +2,11 @@ package org.choongang.Game.play.controllers;
 
 import org.choongang.global.AbstractController;
 
+import java.util.Scanner;
+
 public class GameControllerPvC extends AbstractController {
+    private String userNo; // 사용자 번호 저장
+
     @Override
     public void show() {
         System.out.println("===== User vs Computer =====\n");
@@ -10,6 +14,9 @@ public class GameControllerPvC extends AbstractController {
 
     @Override
     public void prompt() {
+        // 사용자 로그인 처리
+        userNo = getUserNumber(); // 사용자 번호 얻어오기
+
 
         // 게임 루프
         while (true) {
@@ -95,9 +102,16 @@ public class GameControllerPvC extends AbstractController {
                         System.out.println("컴퓨터가 이겼습니다! 컴퓨터가 공격자가 됩니다.");
                         winner = "컴퓨터";
 
+
+                        // 게임 종료 후 게임 결과 저장
+                        saveGameResult(userNo, gameResult, ptocPtop); // 사용자 번호와 게임 결과 전달
+
                     }
                 }
             }
+
+
+
             SaveGameResult saver = new SaveGameResult(); // SaveGameResult 객체 생성
             saver.saveGameResult(userNo, gameResult, ptocPtop); // 사용자 번호와 게임 결과 전달
         }

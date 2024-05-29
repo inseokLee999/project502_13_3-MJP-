@@ -16,7 +16,7 @@ public class saveGameResult {
             // 데이터베이스 연결
 
             // 쿼리 작성
-            String query = "INSERT INTO SCORE_BOARD (userNo, result, ptocPtop) VALUES (?, ?, ?)";
+            String query = "INSERT INTO SCORE_BOARD (userNo, result, ptocPtop) VALUES (USER_NO, WIN, PTOC_PTOP)";
 
             // 준비된 쿼리 실행
             try (PreparedStatement stmt = conn.prepareStatement(query)) {
