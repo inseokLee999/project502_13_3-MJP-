@@ -1,9 +1,10 @@
 package org.choongang.main;
 
+import org.choongang.Game.controllers.GameControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
-import org.choongang.global.constants.Menu;
+import org.choongang.global.constants.MainMenu;
 import org.choongang.main.controllers.MainController;
 import org.choongang.member.controllers.MemberControllerLocator;
 
@@ -18,16 +19,16 @@ public class MainRouter implements Router {
         return instance;
     }
     @Override
-    public void change(Menu menu) {
+    public void change(MainMenu mainMenu) {
         ControllerLocator memlocator = MemberControllerLocator.getInstance();
+        ControllerLocator gamelocator = GameControllerLocator.getInstance();
         Controller controller = null;
-        switch (menu){
-            case JOIN: controller = memlocator.find(Menu.JOIN) ; break;
-            case LOGIN: controller =memlocator.find(Menu.LOGIN); break;
-            case MAINLOGINPAGE: controller = memlocator.find(Menu.MAINLOGINPAGE); break;
+        switch (mainMenu){
+            case JOIN: controller = memlocator.find(MainMenu.JOIN) ; break;
+            case LOGIN: controller =memlocator.find(MainMenu.LOGIN); break;
+            case MAINLOGINPAGE: controller = memlocator.find(MainMenu.MAINLOGINPAGE); break;
 
-            case GAME: controller = memlocator.find(Menu.GAME); break;
-            case RESULT: controller = memlocator.find(Menu.RESULT); break;
+            case GAME: controller = gamelocator.find(MainMenu.GAME); break;
             
             default: controller = new MainController();
         }
@@ -39,7 +40,7 @@ public class MainRouter implements Router {
     @Override
     public void start() {
         while (true){
-            change(Menu.MAIN);
+            change(MainMenu.MAIN);
         }
     }
 }
