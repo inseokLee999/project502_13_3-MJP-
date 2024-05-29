@@ -7,7 +7,7 @@ import java.util.Map;
 public abstract class AbstractServiceLocator implements ServiceLocator {
     protected static ServiceLocator instance;
 
-    protected Map<MainMenu, Service> services;
+    protected Map<Menu, Service> services;
 
     protected AbstractServiceLocator() {services = new HashMap<>(); }
 }
