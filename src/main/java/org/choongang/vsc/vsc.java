@@ -3,7 +3,8 @@ package org.choongang.vsc;
 import java.util.Scanner;
 
 public class vsc {
-    public static void main() {
+
+    public static void vsCom() {
         Scanner scanner = new Scanner(System.in);
 
         // 게임 루프
