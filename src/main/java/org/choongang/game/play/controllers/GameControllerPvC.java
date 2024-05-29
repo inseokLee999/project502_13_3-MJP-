@@ -1,16 +1,21 @@
-package org.choongang.Game.play.controllers;
+package org.choongang.game.play.controllers;
 
 import org.choongang.global.AbstractController;
 
-public class GameControllerPvP extends AbstractController {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class GameControllerPvC extends AbstractController {
     @Override
     public void show() {
-
+        System.out.println("===== User vs Computer =====\n");
     }
 
     @Override
     public void prompt() {
-        //PVP 구현
+
         // 게임 루프
         while (true) {
             // 사용자 입력 받기
@@ -31,30 +36,30 @@ public class GameControllerPvP extends AbstractController {
 
             // 시스템 랜덤으로 가위바위보 설정
             int randomInt = (int) (Math.random() * 3);
-            String otherPrChoice;
+            String computerChoice;
             if (randomInt == 0) {
-                otherPrChoice = "바위";
+                computerChoice = "바위";
             } else if (randomInt == 1) {
-                otherPrChoice = "가위";
+                computerChoice = "가위";
             } else {
-                otherPrChoice = "보";
+                computerChoice = "보";
             }
-            System.out.println("상대방이 선택한 가위바위보: " + otherPrChoice);
+            System.out.println("컴퓨터가 선택한 가위바위보: " + computerChoice);
 
             // 가위바위보 대결 및 승부 결정
             String winner;
-            if (input.equals(otherPrChoice)) {
+            if (input.equals(computerChoice)) {
                 System.out.println("비겼습니다! 가위바위보를 다시 시작합니다.");
                 continue;
             } else {
-                if ((input.equals("바위") && otherPrChoice.equals("가위")) ||
-                        (input.equals("가위") && otherPrChoice.equals("보")) ||
-                        (input.equals("보") && otherPrChoice.equals("바위"))) {
+                if ((input.equals("바위") && computerChoice.equals("가위")) ||
+                        (input.equals("가위") && computerChoice.equals("보")) ||
+                        (input.equals("보") && computerChoice.equals("바위"))) {
                     System.out.println("사용자 승! 사용자가 공격자가 됩니다.");
                     winner = "사용자";
                 } else {
-                    System.out.println("상대방 승! 상대방이 공격자가 됩니다.");
-                    winner = "상대방";
+                    System.out.println("컴퓨터 승! 컴퓨터가 공격자가 됩니다.");
+                    winner = "컴퓨터";
                 }
             }
 
@@ -73,30 +78,48 @@ public class GameControllerPvP extends AbstractController {
                 // 시스템 랜덤으로 묵찌빠 설정
                 randomInt = (int) (Math.random() * 3);
                 if (randomInt == 0) {
-                    otherPrChoice = "묵";
+                    computerChoice = "묵";
                 } else if (randomInt == 1) {
-                    otherPrChoice = "찌";
+                    computerChoice = "찌";
                 } else {
-                    otherPrChoice = "빠";
+                    computerChoice = "빠";
                 }
-                System.out.println("상대방이 선택한 묵찌빠: " + otherPrChoice);
+                System.out.println("컴퓨터가 선택한 묵찌빠: " + computerChoice);
 
                 // 묵찌빠 대결 및 승부 결정
-                if (input.equals(otherPrChoice)) {
+                if (input.equals(computerChoice)) {
                     System.out.println(winner + " 승!");
                     break;
                 } else {
-                    if ((input.equals("묵") && otherPrChoice.equals("찌")) ||
-                            (input.equals("찌") && otherPrChoice.equals("빠")) ||
-                            (input.equals("빠") && otherPrChoice.equals("묵"))) {
+                    if ((input.equals("묵") && computerChoice.equals("찌")) ||
+                            (input.equals("찌") && computerChoice.equals("빠")) ||
+                            (input.equals("빠") && computerChoice.equals("묵"))) {
                         System.out.println("사용자가 이겼습니다! 사용자가 공격자가 됩니다.");
                         winner = "사용자";
                     } else {
-                        System.out.println("상대방이 이겼습니다! 상대방이 공격자가 됩니다.");
-                        winner = "상대방";
+                        System.out.println("컴퓨터가 이겼습니다! 컴퓨터가 공격자가 됩니다.");
+                        winner = "컴퓨터";
                     }
                 }
             }
         }
     }
+    private void saveGameResult(String userNo, String result, String ptocPtop) {
+        String url = "jdbc:oracle:thin:@localhost:1521:XE";
+        String user = "PROJECT2_1";
+        String password = "oracle";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            String query = "INSERT INTO SCORE_BOARD (userNo, result, ptocPtop ) VALUES (USER_NO, WIN, PTOC_PTOP)";
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, userNo);
+                stmt.setString(2, result);
+                stmt.setString(3, ptocPtop);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
+

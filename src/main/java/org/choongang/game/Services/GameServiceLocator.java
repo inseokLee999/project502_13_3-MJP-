@@ -1,13 +1,12 @@
-package org.choongang.Game.Services;
+package org.choongang.game.Services;
 
-import org.choongang.Game.constants.SubMenu;
-import org.choongang.Game.mapper.PointLogMapper;
+import org.choongang.game.constants.SubMenu;
+import org.choongang.game.mapper.PointLogMapper;
 import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Menu;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
 import org.choongang.global.configs.DBConn;
-import org.choongang.global.constants.MainMenu;
 
 public class GameServiceLocator extends AbstractServiceLocator {
     private static ServiceLocator instance;
@@ -35,6 +34,7 @@ public class GameServiceLocator extends AbstractServiceLocator {
                 case PVP://함께하기
 
                 case RANKING:
+                    System.out.println("GameServiceLocator");
                     service = new RankingInfoService(pointLogMapper()); break;
                 default : service = new GameService();break;
             }

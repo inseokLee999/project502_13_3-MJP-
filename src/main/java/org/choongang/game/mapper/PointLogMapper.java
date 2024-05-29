@@ -1,7 +1,7 @@
-package org.choongang.Game.mapper;
+package org.choongang.game.mapper;
 
-import org.choongang.Game.entities.PointLog;
-import org.choongang.Game.entities.Rank;
+import org.choongang.game.entities.PointLog;
+import org.choongang.game.entities.Rank;
 
 import java.util.List;
 

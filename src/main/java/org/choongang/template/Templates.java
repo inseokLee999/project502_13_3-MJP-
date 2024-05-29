@@ -1,10 +1,10 @@
 package org.choongang.template;
 
-import org.choongang.Game.constants.SubMenu;
+import org.choongang.game.constants.SubMenu;
 import org.choongang.global.Menu;
 import org.choongang.global.constants.MainMenu;
 import org.choongang.template.game.GameTpl;
-import org.choongang.template.game.ResultTpl;
+import org.choongang.template.game.RankTpl;
 import org.choongang.template.main.MainTpl;
 import org.choongang.template.member.JoinTpl;
 import org.choongang.template.member.LoginTpl;
@@ -38,14 +38,11 @@ public  class Templates {
         SubMenu subMenu = (SubMenu) menu;
 
         switch (subMenu) {
-            case PVC :
-                tpl = new GameTpl();
-                break;
-            case PVP:
+            case PVC, PVP:
                 tpl = new GameTpl();
                 break;
             case RANKING:
-                tpl = new ResultTpl();
+                tpl = new RankTpl();
                 break;
         }
     }else{
@@ -61,7 +58,7 @@ public  class Templates {
                 tpl = new GameTpl();
                 break;
             case RESULT:
-                tpl = new ResultTpl();
+                tpl = new RankTpl();
                 break;
             default:
                 tpl = new MainTpl();

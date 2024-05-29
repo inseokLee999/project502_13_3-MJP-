@@ -1,6 +1,6 @@
 package org.choongang.main;
 
-import org.choongang.Game.controllers.GameControllerLocator;
+import org.choongang.game.controllers.GameControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;

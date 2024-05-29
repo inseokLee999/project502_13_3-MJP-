@@ -1,4 +1,4 @@
-package org.choongang.Game.entities;
+package org.choongang.game.entities;
 
 import lombok.Builder;
 import lombok.Data;
