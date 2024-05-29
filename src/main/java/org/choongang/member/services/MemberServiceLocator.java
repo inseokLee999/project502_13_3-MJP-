@@ -1,4 +1,4 @@
-package org.choongang.member.service;
+package org.choongang.member.services;
 
 import org.choongang.Game.Services.GameService;
 import org.choongang.Game.Services.ResultService;
@@ -6,6 +6,7 @@ import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Service;
 import org.choongang.global.ServiceLocator;
 import org.choongang.global.constants.MainMenu;
+import org.choongang.member.services.LoginService;
 
 public class MemberServiceLocator extends AbstractServiceLocator {
 
