@@ -5,22 +5,22 @@
 <mapper namespace="org.choongang.game.mapper.ScoreBoardMapper">
 
     <insert id="register">
-
-
-
-        <![CDATA[
-        DECLARE
-            COUNT NUMBER;
-        BEGIN
-
-            SELECT COUNT(*) INTO COUNT FROM SCORE_BOARD WHERE USER_NO=#{userNo};
-
-            INSERT INTO SCORE_BOARD (SCORENO, USER_NO, PTOC_PTOP, WIN, LST)
-                VALUES (SEQ_SCORE_BOARD.NEXTVAL, #{userNo}, #{ptcPtp}, #{win}, #{lst});
-
-        END;
-        ]]>
+        INSERT INTO SCORE_BOARD (SCORENO, USER_NO, PTOC_PTOP, WIN, LST)
+            VALUES (SEQ_SCORE_BOARD.NEXTVAL, #{userNo}, #{ptcPtp}, #{win}, #{lst})
     </insert>
+
+    <update id="update">
+        UPDATE SCORE_BOARD
+            <set>
+                <if test="mode == 'win'">
+                WIN=WIN+1,
+                </if>
+                <if test="mode == 'lose'">
+                LST=LST+1,
+                </if>
+            </set>
+        WHERE USER_NO=#{userNo} AND PTOC_PTOP=#{ptcPtp}
+    </update>
 
     <select id="getRank" resultType="org.choongang.game.entities.ScoreRank">
         SELECT ROWNUM RANK, d.* FROM

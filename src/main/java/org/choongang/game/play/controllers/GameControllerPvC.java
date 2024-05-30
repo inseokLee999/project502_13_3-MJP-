@@ -1,9 +1,14 @@
 package org.choongang.game.play.controllers;
 
+import org.choongang.game.Services.GameServiceLocator;
+import org.choongang.game.constants.SubMenu;
 import org.choongang.game.entities.ScoreBoard;
 import org.choongang.game.mapper.ScoreBoardMapper;
 import org.choongang.global.AbstractController;
+import org.choongang.global.Service;
 import org.choongang.global.configs.DBConn;
+import org.choongang.member.MemberSession;
+import org.choongang.member.mapper.MemberMapper;
 
 
 import java.sql.Connection;
@@ -22,6 +27,8 @@ public class GameControllerPvC extends AbstractController {
 
     @Override
     public void prompt() {
+
+        Service<ScoreBoard> service = GameServiceLocator.getInstance().find(SubMenu.SCORE_BOARD);
 
         // 게임 루프
         while (true) {
@@ -96,6 +103,14 @@ public class GameControllerPvC extends AbstractController {
                 // 묵찌빠 대결 및 승부 결정
                 if (input.equals(computerChoice)) {
                     System.out.println(winner + " 승!");
+                    // 기록 추가
+                    String mode = winner.equals("컴퓨터")?"lose":"win";
+                    ScoreBoard scoreBoard = ScoreBoard.builder()
+                            .mode(mode)
+                            .userNo(MemberSession.getMember().getUserNo())
+                            .ptcPtp("ptc")
+                            .build();
+                    service.process(scoreBoard);
                     break;
                 } else {
                     if ((input.equals("묵") && computerChoice.equals("찌")) ||
@@ -109,6 +124,8 @@ public class GameControllerPvC extends AbstractController {
                     }
                 }
             }
+
+
         }
     }
 
