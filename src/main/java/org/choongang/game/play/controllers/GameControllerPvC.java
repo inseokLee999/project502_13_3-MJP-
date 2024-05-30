@@ -1,10 +1,20 @@
-package org.choongang.Game.play.controllers;
+package org.choongang.game.play.controllers;
 
+import org.choongang.game.entities.ScoreBoard;
+import org.choongang.game.mapper.ScoreBoardMapper;
 import org.choongang.global.AbstractController;
-import org.choongang.global.constants.MainMenu;
-import org.choongang.template.Templates;
+import org.choongang.global.configs.DBConn;
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class GameControllerPvC extends AbstractController {
+
+
+
     @Override
     public void show() {
         System.out.println("===== User vs Computer =====\n");
@@ -101,4 +111,31 @@ public class GameControllerPvC extends AbstractController {
             }
         }
     }
+
+    private void saveScoreBoard(boolean isWin) {
+        ScoreBoardMapper mapper = DBConn.getSession().getMapper(ScoreBoardMapper.class);
+        //ScoreBoard data = ScoreBoard.builder()
+
+       // mapper.register(data);
+
+    }
+
+    private void saveGameResult(String userNo, String result, String ptocPtop) {
+        String url = "jdbc:oracle:thin:@localhost:1521:XE";
+        String user = "PROJECT2_1";
+        String password = "oracle";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password)) {
+            String query = "INSERT INTO SCORE_BOARD (userNo, result, ptocPtop ) VALUES (USER_NO, WIN, PTOC_PTOP)";
+            try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                stmt.setString(1, userNo);
+                stmt.setString(2, result);
+                stmt.setString(3, ptocPtop);
+                stmt.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
+

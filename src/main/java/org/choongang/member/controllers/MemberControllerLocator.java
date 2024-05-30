@@ -1,7 +1,5 @@
 package org.choongang.member.controllers;
 
-import org.choongang.Game.controllers.GameController;
-import org.choongang.Game.controllers.ResultController;
 import org.choongang.global.AbstractControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
