@@ -30,7 +30,7 @@ public class GameControllerLocator extends AbstractControllerLocator {
             SubMenu subMenu = (SubMenu) menu;
             switch(subMenu){
                 case PVC:
-                    //controller = new GameControllerPvC();
+                    controller = new GameControllerPvC();
                     break;
                 case PVP:
                     controller = new GameControllerPvP();
