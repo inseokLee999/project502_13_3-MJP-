@@ -13,5 +13,7 @@ public class ScoreBoard {
     private String ptcPtp;
     private int win;
     private int lst;
+    private String mode;
     private LocalDateTime scoreRegDt;
+
 }

@@ -35,6 +35,9 @@ public class GameServiceLocator extends AbstractServiceLocator {
 
                 case RANKING:
                     service = new RankingInfoService(scoreBoardMapper()); break;
+                case SCORE_BOARD:
+                    service = new ResultService(scoreBoardMapper());
+                    break;
                 default : service = new GameService();break;
             }
         }else{//주 메뉴

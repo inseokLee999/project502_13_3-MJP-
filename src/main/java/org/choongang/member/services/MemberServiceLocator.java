@@ -1,6 +1,7 @@
 package org.choongang.member.services;
 
 import org.choongang.game.Services.GameService;
+import org.choongang.game.Services.ResultService;
 import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Menu;
 import org.choongang.global.Service;
@@ -48,7 +49,6 @@ public class MemberServiceLocator extends AbstractServiceLocator {
             case JOIN: service = new JoinService(memberMapper(), joinValidator());break;
             case LOGIN: service = new LoginService(memberMapper(), loginValidator()); break;
             case GAME: service = new GameService(); break;
-            case RESULT: service = new org.choongang.game.Services.ResultService();break;
         }
 
         return service;
