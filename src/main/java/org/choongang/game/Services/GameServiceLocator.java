@@ -1,7 +1,6 @@
 package org.choongang.game.Services;
 
 import org.choongang.game.constants.SubMenu;
-import org.choongang.game.mapper.PointLogMapper;
 import org.choongang.game.mapper.ScoreBoardMapper;
 import org.choongang.global.AbstractServiceLocator;
 import org.choongang.global.Menu;

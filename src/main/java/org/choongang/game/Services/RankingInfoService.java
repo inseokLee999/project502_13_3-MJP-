@@ -1,8 +1,6 @@
 package org.choongang.game.Services;
 
-import org.choongang.game.entities.Rank;
 import org.choongang.game.entities.ScoreRank;
-import org.choongang.game.mapper.PointLogMapper;
 import org.choongang.game.mapper.ScoreBoardMapper;
 import org.choongang.global.Service;
 

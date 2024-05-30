@@ -2,7 +2,6 @@ package org.choongang.game.controllers;
 
 import org.choongang.game.Services.GameServiceLocator;
 import org.choongang.game.constants.SubMenu;
-import org.choongang.game.entities.Rank;
 import org.choongang.game.entities.ScoreRank;
 import org.choongang.global.AbstractController;
 import org.choongang.global.Service;
@@ -19,9 +18,8 @@ public class RankingController extends AbstractController {
 
         Service<List<ScoreRank>> service = GameServiceLocator.getInstance().find(SubMenu.RANKING);
         List<ScoreRank> ranks = service.process();
-        System.out.println(ranks);
         String ranking = ranks.stream()
-                .map(r -> String.format("%d등 - %s(%s)/ 승률 %f%%", r.getRank(), r.getUserNm(), r.getUserId(), r.getRate(), r.getRate()))
+                .map(r -> String.format("%d등 - %s(%s)/ %d승 %d패 / 승률 %.2f%%", r.getRank(), r.getUserNm(), r.getUserId(),r.getWin(),r.getLost(), r.getRate()))
                 .collect(Collectors.joining("\n"));
 
         Templates.getInstance().render(SubMenu.RANKING, () -> ranking);

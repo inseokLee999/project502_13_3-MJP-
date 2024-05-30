@@ -8,7 +8,6 @@ import org.choongang.member.mapper.MemberMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -38,9 +37,9 @@ public class ScoreBoardMapperTest {
             int lst = (int)(Math.random() * 30) + 1;
             ScoreBoard sb = ScoreBoard.builder()
                     .userNo(member.getUserNo())
+                    .ptcPtp("ptc")
                     .win(win)
                     .lst(lst)
-                    .ptcPtp("ptc")
                     .build();
 
             mapper.register(sb);
