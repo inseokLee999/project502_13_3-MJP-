@@ -5,6 +5,9 @@
 <mapper namespace="org.choongang.game.mapper.ScoreBoardMapper">
 
     <insert id="register">
+
+
+
         <![CDATA[
         DECLARE
             COUNT NUMBER;
