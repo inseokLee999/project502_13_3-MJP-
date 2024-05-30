@@ -8,6 +8,8 @@ public class ScoreRank {
     private long userNo;
     private String userId;
     private String userNm;
+    private int win;
+    private int lost;
     private double rate;
 
 }
