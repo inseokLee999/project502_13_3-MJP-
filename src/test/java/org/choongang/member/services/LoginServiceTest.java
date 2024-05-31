@@ -9,6 +9,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 public class LoginServiceTest {
     private LoginService loginService;
     private JoinService joinService;
@@ -22,10 +24,9 @@ public class LoginServiceTest {
          * 로그인이 되는지 테스트 한다. 즉, 가입먼저 시키고 테스트 진행
          */
         // Service 객체를 올바르게 캐스팅
-        joinService = MemberServiceLocator.getInstance().find(MainMenu.JOIN);
-        loginService = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
+        // joinService = MemberServiceLocator.getInstance().find(MainMenu.JOIN);
+        // loginService = MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
 
-        // 명시적 캐스팅
         joinService = (JoinService) MemberServiceLocator.getInstance().find(MainMenu.JOIN);
         loginService = (LoginService) MemberServiceLocator.getInstance().find(MainMenu.LOGIN);
 
