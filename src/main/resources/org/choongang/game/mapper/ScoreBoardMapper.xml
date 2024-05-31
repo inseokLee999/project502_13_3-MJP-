@@ -26,7 +26,7 @@
         SELECT ROWNUM RANK, d.* FROM
         (SELECT a.USER_NO userNo, b.USER_ID userId, b.USER_NM userNm, a.WIN WIN, a.LST LOST,  round((a.WIN / (a.WIN + a.LST))*100,2) RATE FROM SCORE_BOARD a
         JOIN MEMBER b ON a.USER_NO = b.USER_NO
-        WHERE a.WIN + a.LST >= 10
-        ORDER BY (a.WIN / (a.WIN + a.LST)) DESC) d WHERE <![CDATA[ROWNUM <= 15]]>
+        WHERE a.WIN + a.LST >= 2
+        ORDER BY (a.WIN / (a.WIN + a.LST)) DESC) d WHERE <![CDATA[ROWNUM <= 10]]>
     </select>
 </mapper>

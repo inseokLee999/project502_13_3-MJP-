@@ -96,3 +96,5 @@ CREATE TABLE SCORE_BOARD(--매번 게임실행후 게임결과기록
    LST NUMBER(4) DEFAULT 0 NOT NULL,--해당회차 패하면 기록1
    SCORE_REG_DT DATE DEFAULT SYSDATE
 );
+
+Application 환경 변수 mode=prod 추가
