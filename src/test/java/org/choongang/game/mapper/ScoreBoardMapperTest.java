@@ -1,10 +1,11 @@
 package org.choongang.game.mapper;
 
-import org.choongang.game.entities.ScoreBoard;
-import org.choongang.game.entities.ScoreRank;
-import org.choongang.global.configs.DBConn;
-import org.choongang.member.entities.Member;
-import org.choongang.member.mapper.MemberMapper;
+import org.choongang.game.ScoreBoardMapper;
+import org.choongang.game.ScoreBoard;
+import org.choongang.game.ScoreRank;
+import org.choongang.global.DBConn;
+import org.choongang.member.Member;
+import org.choongang.member.MemberMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

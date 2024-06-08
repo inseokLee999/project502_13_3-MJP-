@@ -1,13 +1,8 @@
 package org.choongang.template;
-
-import org.choongang.game.constants.SubMenu;
+//이 클래스는 싱글톤 패턴을 사용하여 하나의 인스턴스만을 가지며, 다양한 메뉴에 대한 템플릿을 관리하고 렌더링하는 역할을 합니다.
+import org.choongang.game.SubMenu;
 import org.choongang.global.Menu;
-import org.choongang.global.constants.MainMenu;
-import org.choongang.template.game.GameTpl;
-import org.choongang.template.game.RankTpl;
-import org.choongang.template.main.MainTpl;
-import org.choongang.template.member.JoinTpl;
-import org.choongang.template.member.LoginTpl;
+import org.choongang.global.MainMenu;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +10,7 @@ import java.util.function.Supplier;
 
 public  class Templates {
     private static  Templates instance;
+    //Menu 타입의 키와 Template 타입의 값을 가지는 맵으로, 각 메뉴에 대한 템플릿을 저장합니다.
     private Map<Menu, Template> tpls;
     private Templates(){tpls = new HashMap<>();}
     public static Templates getInstance(){
@@ -23,6 +19,7 @@ public  class Templates {
         }
         return instance;
     }
+
     public void render(Menu menu){
         render(menu,null);
     }

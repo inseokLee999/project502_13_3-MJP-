@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="org.choongang.game.mapper.ScoreBoardMapper">
+<mapper namespace="org.choongang.game.ScoreBoardMapper">
 
     <insert id="register">
         INSERT INTO SCORE_BOARD (SCORENO, USER_NO, PTOC_PTOP, WIN, LST)
@@ -22,7 +22,7 @@
         WHERE USER_NO=#{userNo} AND PTOC_PTOP=#{ptcPtp}
     </update>
 
-    <select id="getRank" resultType="org.choongang.game.entities.ScoreRank">
+    <select id="getRank" resultType="org.choongang.game.ScoreRank">
         SELECT ROWNUM RANK, d.* FROM
         (SELECT a.USER_NO userNo, b.USER_ID userId, b.USER_NM userNm, a.WIN WIN, a.LST LOST,  round((a.WIN / (a.WIN + a.LST))*100,2) RATE FROM SCORE_BOARD a
         JOIN MEMBER b ON a.USER_NO = b.USER_NO

@@ -1,7 +1,6 @@
 package org.choongang.member;
 
 import lombok.Getter;
-import org.choongang.member.entities.Member;
 
 public class MemberSession {
     @Getter

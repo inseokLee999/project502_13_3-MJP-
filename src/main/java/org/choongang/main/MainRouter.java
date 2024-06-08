@@ -1,12 +1,11 @@
 package org.choongang.main;
 
-import org.choongang.game.controllers.GameControllerLocator;
+import org.choongang.game.GameControllerLocator;
 import org.choongang.global.Controller;
 import org.choongang.global.ControllerLocator;
 import org.choongang.global.Router;
-import org.choongang.global.constants.MainMenu;
-import org.choongang.main.controllers.MainController;
-import org.choongang.member.controllers.MemberControllerLocator;
+import org.choongang.global.MainMenu;
+import org.choongang.member.MemberControllerLocator;
 
 public class MainRouter implements Router {
     private static Router instance;
@@ -18,6 +17,7 @@ public class MainRouter implements Router {
         }
         return instance;
     }
+
     @Override
     public void change(MainMenu mainMenu) {
         ControllerLocator memlocator = MemberControllerLocator.getInstance();

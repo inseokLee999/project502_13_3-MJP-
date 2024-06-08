@@ -1,13 +1,12 @@
 package org.choongang.global;
 
-import org.choongang.global.constants.MainMenu;
 import org.choongang.main.MainRouter;
 import org.choongang.member.MemberSession;
 
 import java.util.Scanner;
 import java.util.function.Predicate;
 
-public abstract class AbstractController implements Controller{
+public abstract class AbstractController implements Controller {
     protected Scanner sc;
     public AbstractController() {sc = new Scanner(System.in);}
 
@@ -81,5 +80,12 @@ public abstract class AbstractController implements Controller{
             str = sc.nextLine();
         }while (!predicate.test(str));
         return str;
+
+
+
+
+
+
+
     }
 }

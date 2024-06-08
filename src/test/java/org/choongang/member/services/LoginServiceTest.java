@@ -1,10 +1,13 @@
 package org.choongang.member.services;
 
-import org.choongang.global.constants.MainMenu;
+import org.choongang.global.MainMenu;
+import org.choongang.member.JoinService;
+import org.choongang.member.LoginService;
+import org.choongang.member.MemberServiceLocator;
 import org.choongang.member.MemberSession;
-import org.choongang.member.controllers.RequestJoin;
-import org.choongang.member.controllers.RequestLogin;
-import org.choongang.member.entities.Member;
+import org.choongang.member.RequestJoin;
+import org.choongang.member.RequestLogin;
+import org.choongang.member.Member;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
